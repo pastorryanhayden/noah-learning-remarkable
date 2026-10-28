@@ -1,0 +1,8 @@
+{
+  "name": "Practice",
+  "application": "/bin/sh",
+  "args": ["/home/root/xovi/exthome/appload/noah-practice/launch.sh"],
+  "workingDirectory": "/home/root",
+  "qtfb": false,
+  "disablesWindowedMode": true
+}

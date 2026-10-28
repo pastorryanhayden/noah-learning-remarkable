@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily Noah practice backup
+
+[Timer]
+OnCalendar=*-*-* 08:00:00 UTC
+Persistent=true
+RandomizedDelaySec=10m
+Unit=noah-learning-backup.service
+
+[Install]
+WantedBy=timers.target

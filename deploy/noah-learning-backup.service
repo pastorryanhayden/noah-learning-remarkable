@@ -1,0 +1,13 @@
+[Unit]
+Description=Consistent Noah practice database backup
+
+[Service]
+Type=oneshot
+User=noah-learning
+Group=noah-learning
+UMask=0077
+ExecStart=/bin/sh -c '/usr/bin/python3 /opt/noah-learning/current/deploy/backup.py /var/lib/noah-learning/attempts.sqlite /var/lib/noah-learning/backups/attempts-$(date -u +%%Y%%m%%dT%%H%%M%%S)-$$.sqlite'
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/noah-learning

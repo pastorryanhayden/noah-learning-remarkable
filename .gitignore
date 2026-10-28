@@ -1,0 +1,11 @@
+build/
+build-*/
+*.sqlite
+*.sqlite-journal
+.env.local
+__pycache__/
+*.pyc
+
+.runtime/
+*.sqlite-wal
+*.sqlite-shm

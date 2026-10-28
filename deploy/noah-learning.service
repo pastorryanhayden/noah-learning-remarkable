@@ -1,0 +1,26 @@
+[Unit]
+Description=Noah timed practice API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=noah-learning
+Group=noah-learning
+WorkingDirectory=/opt/noah-learning/current
+EnvironmentFile=/etc/noah-learning/server.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/noah-learning/current/venv/bin/python server/app.py --require-device-token --port 8787 --database /var/lib/noah-learning/attempts.sqlite --env-file /dev/null
+Restart=on-failure
+RestartSec=3
+UMask=0077
+StateDirectory=noah-learning
+StateDirectoryMode=0700
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/noah-learning
+
+[Install]
+WantedBy=multi-user.target
