@@ -111,3 +111,7 @@ pre-existing XOVI installation, service overrides and masks. Never blindly
 remove an existing `/etc/systemd/system/xochitl.service.d` directory or other
 applications. Check that `xochitl` is active and recovery-mask state matches
 its original state afterward.
+
+## Reviewed reactivation helper
+
+`activate-rm2-3.28.sh` contains the guarded activation used for this installation, with an added exact-firmware check before any mutation. Copy it to the tablet and run with Bash only after reviewing the pinned installation and confirming the active version. It builds a missing resource map, temporarily masks only the reboot-on-failure handler it owns, rolls back to stock on activation failure, and removes its temporary mask. It refuses activation after a firmware update; revalidate instead of bypassing the guard. Do not install it as a boot service.
